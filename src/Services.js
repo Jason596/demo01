@@ -1,19 +1,61 @@
 import React, { Component, Fragment } from "react";
 
+
 class Services extends Component {
+  constructor(props) {
+    super(props)
+    this.state={
+      inputValue: '',
+      list:['Basic service', 'Head service', 'Back service']
+    }
+  }
+
   render() {
     return (
       <Fragment>
         <div>
-          <input />
-          <button>Enter new service</button>
+          <input value={this.state.inputValue} onChange={this.inputChange.bind(this)}/>
+          <button onClick={this.inputList.bind(this)}>Enter new service</button>
         </div>
         <ul>
-            <li>Head massage</li>
-            <li>Back massage</li>
+          {
+            this.state.list.map((item, index) =>{
+             return (
+              <li 
+              key={index+item}
+              onClick={this.deleteItem.bind(this,index)}
+              >
+                {item}
+              </li>
+             ) 
+            })
+          }
         </ul>
       </Fragment>
     )
+  }
+
+  inputChange(e) {
+    this.setState({
+      inputValue: e.target.value
+    })
+  }
+  
+  inputList() {
+    this.setState({
+      list: [...this.state.list, this.state.inputValue],
+      inputValue: ''
+    })  
+  }
+
+  deleteItem(index) {
+    // Best practise. 
+    let localList = this.state.list
+    // position, how many item to be removed, item1, item2
+    localList.splice(index,1)
+    this.setState({
+      list: localList
+    })
   }
 }
 
