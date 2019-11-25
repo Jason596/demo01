@@ -12,7 +12,9 @@ class Services extends Component {
 
   render() {
     return (
+      // flex
       <Fragment>
+        {/* flex */}
         <div>
           <input value={this.state.inputValue} onChange={this.inputChange.bind(this)}/>
           <button onClick={this.inputList.bind(this)}>Enter new service</button>
