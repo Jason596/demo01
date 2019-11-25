@@ -16,7 +16,8 @@ class Services extends Component {
       <Fragment>
         {/* flex */}
         <div>
-          <input value={this.state.inputValue} onChange={this.inputChange.bind(this)}/>
+          <label htmlFor="zhe">Add services</label>
+          <input id="zhe" value={this.state.inputValue} onChange={this.inputChange.bind(this)}/>
           <button onClick={this.inputList.bind(this)}>Enter new service</button>
         </div>
         <ul>
