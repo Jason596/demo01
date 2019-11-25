@@ -26,8 +26,9 @@ class Services extends Component {
               <li 
               key={index+item}
               onClick={this.deleteItem.bind(this,index)}
+              dangerouslySetInnerHTML={{__html:item}}
               >
-                {item}
+
               </li>
              ) 
             })
