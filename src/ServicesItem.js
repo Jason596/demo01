@@ -6,7 +6,36 @@ class ServicesItem extends Component {
     super(props);
     this.handleClick = this.handleClick.bind(this);
   }
+
+  UNSAFE_componentWillMount() {
+    console.log('Child-UNSAFE_componentWillMount-----------------');
+  }
+
+  componentDidMount() {
+    console.log('Child-componentDidMount-----------------');
+  }
+
+  UNSAFE_componentWillReceiveProps() {
+    console.log('Child-UNSAFE_componentWillReceiveProps--------------------');
+  }
+
+  shouldComponentUpdate() {
+    console.log('Child-shouldComponentUpdate-----------------');
+    return true;
+  }
+  UNSAFE_componentWillUpdate() {
+    console.log('Child-componentWillUpdate---------------------');
+  }
+
+  componentDidUpdate() {
+    console.log('Child-componentDidUpdate---------------------');
+  }
+
+  componentWillUnmount() {
+    console.log('Child-componentWillUnmount--------------------');
+  }
   render() {
+    console.log('child-render function');
     return (
       <li onClick={this.handleClick}>
         {this.props.avname} is servicing you with -{this.props.content}

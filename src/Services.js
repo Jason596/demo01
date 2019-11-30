@@ -10,7 +10,35 @@ class Services extends Component {
     };
   }
 
+  UNSAFE_componentWillMount() {
+    console.log('Parent-UNSAFE_componentWillMount-----------------');
+  }
+
+  componentDidMount() {
+    console.log('Parent-componentDidMount-----------------');
+  }
+
+  UNSAFE_componentWillReceiveProps() {
+    console.log('Parent-UNSAFE_componentWillReceiveProps--------------------');
+  }
+
+  shouldComponentUpdate() {
+    console.log('Parent-shouldComponentUpdate-----------------');
+    return true;
+  }
+
+  UNSAFE_componentWillUpdate() {
+    console.log('Parent-componentWillUpdate---------------------');
+  }
+  componentDidUpdate() {
+    console.log('Parent-componentDidUpdate---------------------');
+  }
+
+  componentWillUnmount() {
+    console.log('Parent-componentWillUnmount--------------------');
+  }
   render() {
+    console.log('Parent-render function----------------------');
     return (
       // flex
       <Fragment>
