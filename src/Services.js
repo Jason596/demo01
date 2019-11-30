@@ -33,14 +33,13 @@ class Services extends Component {
               // dangerouslySetInnerHTML={{__html:item}}
               // >
               // </li>
-            <div >
                 <ServicesItem 
                   key={index+item} 
                   content={item} 
                   index={index} 
                   deleteItem={this.deleteItem.bind(this)}
                 />
-            </div>
+           
             );
           })}
         </ul>
