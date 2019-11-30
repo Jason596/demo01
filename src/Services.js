@@ -21,10 +21,17 @@ class Services extends Component {
             id="zhe"
             value={this.state.inputValue}
             onChange={this.inputChange.bind(this)}
+            ref={input => {
+              this.input = input;
+            }}
           />
           <button onClick={this.inputList.bind(this)}>Enter new service</button>
         </div>
-        <ul>
+        <ul
+          ref={ul => {
+            this.ul = ul;
+          }}
+        >
           {this.state.list.map((item, index) => {
             return (
               // <li
@@ -33,13 +40,12 @@ class Services extends Component {
               // dangerouslySetInnerHTML={{__html:item}}
               // >
               // </li>
-                <ServicesItem 
-                  key={index+item} 
-                  content={item} 
-                  index={index} 
-                  deleteItem={this.deleteItem.bind(this)}
-                />
-           
+              <ServicesItem
+                key={index + item}
+                content={item}
+                index={index}
+                deleteItem={this.deleteItem.bind(this)}
+              />
             );
           })}
         </ul>
@@ -47,17 +53,23 @@ class Services extends Component {
     );
   }
 
-  inputChange(e) {
+  inputChange() {
     this.setState({
-      inputValue: e.target.value
+      inputValue: this.input.value
     });
   }
 
   inputList() {
-    this.setState({
-      list: [...this.state.list, this.state.inputValue],
-      inputValue: ''
-    });
+    this.setState(
+      {
+        list: [...this.state.list, this.state.inputValue],
+        inputValue: ''
+      },
+      () => {
+        // the child component is wrapped around <div></div>
+        console.log(this.ul.querySelectorAll('div ').length);
+      }
+    );
   }
 
   deleteItem(index) {
