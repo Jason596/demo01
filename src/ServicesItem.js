@@ -19,9 +19,14 @@ class ServicesItem extends Component {
     console.log('Child-UNSAFE_componentWillReceiveProps--------------------');
   }
 
-  shouldComponentUpdate() {
-    console.log('Child-shouldComponentUpdate-----------------');
-    return true;
+  shouldComponentUpdate(nextProps, nextState) {
+    // if (nextProps.content === this.props.content) {
+    //   console.log('Child-shouldComponentUpdate---false-----------------');
+    //   return false;
+    // } else {
+    //   return true;
+    // }
+    return nextProps.content !== this.props.content;
   }
   UNSAFE_componentWillUpdate() {
     console.log('Child-componentWillUpdate---------------------');
@@ -34,6 +39,7 @@ class ServicesItem extends Component {
   componentWillUnmount() {
     console.log('Child-componentWillUnmount--------------------');
   }
+
   render() {
     console.log('child-render function');
     return (

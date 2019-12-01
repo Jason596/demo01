@@ -95,7 +95,7 @@ class Services extends Component {
       },
       () => {
         // the child component is wrapped around <div></div>
-        console.log(this.ul.querySelectorAll('div ').length);
+        console.log(this.ul.querySelectorAll('li').length);
       }
     );
   }
