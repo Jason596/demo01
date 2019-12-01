@@ -1,12 +1,13 @@
 import React, { Component, Fragment } from 'react';
 import ServicesItem from './ServicesItem';
+import Axios from 'axios';
 
 class Services extends Component {
   constructor(props) {
     super(props);
     this.state = {
       inputValue: '',
-      list: ['Basic service', 'Head service', 'Back service']
+      list: []
     };
   }
 
@@ -15,7 +16,17 @@ class Services extends Component {
   }
 
   componentDidMount() {
-    console.log('Parent-componentDidMount-----------------');
+    //console.log('Parent-componentDidMount-----------------');
+    Axios.get(
+      'https://easy-mock.com/mock/5de38ea3d662bd292d7ec265/demo01/mocking-endpoint'
+    )
+      .then(res => {
+        console.log('Received from Juejin: ' + JSON.stringify(res));
+        this.setState({
+          list: res.data.data
+        });
+      })
+      .catch(error => console.log('Failed to fectch information: ' + error));
   }
 
   UNSAFE_componentWillReceiveProps() {
@@ -88,6 +99,7 @@ class Services extends Component {
   }
 
   inputList() {
+    // setState is asnyc
     this.setState(
       {
         list: [...this.state.list, this.state.inputValue],
