@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import ServicesItem from './ServicesItem';
 import Axios from 'axios';
-
+import Boss from './Boss';
+import './style.css'
 class Services extends Component {
   constructor(props) {
     super(props);
@@ -88,6 +89,7 @@ class Services extends Component {
             );
           })}
         </ul>
+        <Boss />
       </Fragment>
     );
   }

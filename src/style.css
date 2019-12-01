@@ -1,0 +1,10 @@
+/* bu tou ming du */
+.show {
+  opacity: 1;
+  /* 1.5 manman bian, ease-in you man bian kuai */
+  transition: all 1.5s ease-in;
+}
+.hiden {
+  opacity: 0;
+  transition: all 2s ease-in;
+}
